@@ -1,28 +1,51 @@
-using UnityEngine;
+using Entities.Abilities;
 using Entities.Health;
-using System.Collections;
-using Entities.Interfaces;
+using Entities.Death;
+using UnityEngine;
+using System;
 
 namespace Entities
 {
-    public class Entity : MonoBehaviour, IKillable
+    public class Entity : MonoBehaviour
     {
         [Header("Stats")]
-        public int damage = 1;
+        [SerializeField]private int damage = 1;
+        public int Damage
+        {
+            get => damage;
+            set
+            {
+                if (value < 0)
+                    damage = 0;
+                else
+                    damage = value;
+            }
+        }
 
-        [Header("References")]
+        [Header("Life Cicles")]
         public HealthBase health;
+        public DeathBase death;
+
+        [Header("Abilities")]
+        [SerializeField] private AbilityBase ability;
+        [SerializeField] private AbilityBase startAbility;
+
+        [HideInInspector] public Action<Entity> OnAbilityUsed;
 
         private void Start()
         {
             Init();
         }
 
-        protected virtual void Init() { }
-
-        public virtual void Kill()
+        public void UseAbility()
         {
-            Destroy(this);
+            ability.Cast();
+            OnAbilityUsed?.Invoke(this);
+        }
+
+        protected virtual void Init() 
+        {
+            startAbility?.Cast();
         }
     }
 }

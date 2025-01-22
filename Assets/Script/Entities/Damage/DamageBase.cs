@@ -5,13 +5,13 @@ namespace Entities.Damage
 {
     public class DamageBase : MonoBehaviour, IDamageble
     {
-        public int Deal(int damage, int amoor, int currentHealth)
+        public virtual int Deal(int damage, int amoor, int currentHealth)
         {
-            var result = damage - amoor;
+            var damageResult = damage - amoor;
 
-            if (result < 0) return currentHealth;
+            if (damageResult < 0) return currentHealth;
 
-            return currentHealth -= result;
+            return currentHealth -= damageResult;
         }
     }
 }

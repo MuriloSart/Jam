@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Entities;
 
-public class AlliesManager : Singleton<AlliesManager>
+public class EnemiesManager : Singleton<EnemiesManager>
 {
-    public List<Entity> allies;
+    public List<Entity> enemies;
 
     private void OnEnable()
     {
-        if (allies != null)
+        if (enemies != null)
         {
-            foreach(var entity in allies)
+            foreach (var entity in enemies)
             {
                 entity.OnAbilityUsed += HandleAbilityUsed;
             }
@@ -18,9 +18,9 @@ public class AlliesManager : Singleton<AlliesManager>
 
     private void OnDisable()
     {
-        if (allies != null)
+        if (enemies != null)
         {
-            foreach (var entity in allies)
+            foreach (var entity in enemies)
             {
                 entity.OnAbilityUsed -= HandleAbilityUsed;
             }

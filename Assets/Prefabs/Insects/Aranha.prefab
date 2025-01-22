@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 6162489445926514691}
   - component: {fileID: 1152242416390001573}
   - component: {fileID: 8747378936898341712}
-  - component: {fileID: 6744714321739485386}
+  - component: {fileID: 3252932230082012386}
   - component: {fileID: 241545793006322219}
   - component: {fileID: 4587855640750102577}
-  - component: {fileID: 8909215361218920942}
+  - component: {fileID: 7897228037315727321}
+  - component: {fileID: 8865785657947462256}
+  - component: {fileID: 5087989885188561682}
   m_Layer: 0
   m_Name: Aranha
   m_TagString: Untagged
@@ -164,7 +166,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6744714321739485386
+--- !u!114 &3252932230082012386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,11 +175,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3427888476387941591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb6667bb1230fd4589b8d368c3b1bc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1092c538ac5f5e743b264597d4f52d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   health: {fileID: 241545793006322219}
+  death: {fileID: 7897228037315727321}
+  ability: {fileID: 8865785657947462256}
+  startAbility: {fileID: 8865785657947462256}
 --- !u!114 &241545793006322219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageHandler: {fileID: 4587855640750102577}
-  healHandler: {fileID: 8909215361218920942}
+  healHandler: {fileID: 5087989885188561682}
   maxHealth: 1
   _currentArmor: 0
 --- !u!114 &4587855640750102577
@@ -206,7 +211,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2a69c43cdd0274fb323aa0adaad7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8909215361218920942
+--- !u!114 &7897228037315727321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427888476387941591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405b2d09846a31541bb61999b45e6bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8865785657947462256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427888476387941591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a67cbb381e9d2242a8173502b032c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5087989885188561682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
