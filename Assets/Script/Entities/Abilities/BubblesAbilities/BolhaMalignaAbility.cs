@@ -8,8 +8,8 @@ namespace Entities.Abilities
 
         public override void Cast()
         {
-            int randomInt = Random.Range(0, EnemiesManager.Instance.enemies.Count - 1);
-            EnemiesManager.Instance.enemies[randomInt].health.Damage(abilityDamage);
+            int randomInt = Random.Range(0, EnemiesManager.Instance.enemyQueue.Count - 1);
+            EnemiesManager.Instance.enemyQueue[randomInt].health.Damage(abilityDamage);
         }
     }
 }

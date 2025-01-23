@@ -3,6 +3,8 @@ using Entities.Health;
 using Entities.Death;
 using UnityEngine;
 using System;
+using Entities.Damage;
+using Entities.Heal;
 
 namespace Entities
 {
@@ -25,10 +27,13 @@ namespace Entities
         [Header("Life Cicles")]
         public HealthBase health;
         public DeathBase death;
+        public DamageBase damageHandler;
+        public HealBase healHandler;
 
         [Header("Abilities")]
         [SerializeField] private AbilityBase ability;
         [SerializeField] private AbilityBase startAbility;
+
 
         [HideInInspector] public Action<Entity> OnAbilityUsed;
 
@@ -37,15 +42,17 @@ namespace Entities
             Init();
         }
 
+        protected virtual void Init() 
+        {
+            startAbility?.Cast();
+            damageHandler.Initializer(this);
+            healHandler.Initializer(this);
+        }
+
         public void UseAbility()
         {
             ability.Cast();
             OnAbilityUsed?.Invoke(this);
-        }
-
-        protected virtual void Init() 
-        {
-            startAbility?.Cast();
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Entities.Abilities
 {
-    public class BolhaAfiadaAbility : AbilityBase
+    public class BolhaAfiadaAbilityB : AbilityBase
     {
         public int heal = 1;
         public int bonusDamage = 2;

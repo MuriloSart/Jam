@@ -2,6 +2,6 @@
 {
     public interface IDamageble
     {
-        public int Deal(int damage, int amoor, int currentHealth);
+        public void Deal(int damage, Entity entity);
     }
 }
