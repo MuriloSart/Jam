@@ -550,6 +550,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &775519198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775519199}
+  m_Layer: 0
+  m_Name: StartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &775519199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775519198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.6, y: -2.253021, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1573052819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802333326
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +802,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092847510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481240062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481240063}
+  m_Layer: 0
+  m_Name: StartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481240063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481240062}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.4, y: -2.253021, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092847510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573052818
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573052819}
   - component: {fileID: 1573052820}
+  - component: {fileID: 1573052821}
   m_Layer: 0
   m_Name: AlliesManager
   m_TagString: Untagged
@@ -802,6 +865,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 573752803}
+  - {fileID: 775519199}
   m_Father: {fileID: 1680171311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1573052820
@@ -817,6 +881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaRect: {fileID: 573752803}
+  startPosition: {fileID: 775519199}
+  queueAnimation: {fileID: 1573052821}
+  maxAllies: 8
   alliesQueue:
   - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
   - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
@@ -826,7 +893,20 @@ MonoBehaviour:
   - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
   - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
   - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
-  maxEnemies: 8
+  positions: []
+--- !u!114 &1573052821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573052818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a422df60a76c9fa499ddac46a3f723c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 1
 --- !u!1 &1680171310
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,8 +936,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1573052819}
   - {fileID: 616999005}
+  - {fileID: 1573052819}
   - {fileID: 2092847510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -871,6 +951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092847510}
   - component: {fileID: 2092847511}
+  - component: {fileID: 2092847512}
   m_Layer: 0
   m_Name: EnemiesManager
   m_TagString: Untagged
@@ -892,6 +973,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1361042569}
+  - {fileID: 1481240063}
   m_Father: {fileID: 1680171311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2092847511
@@ -907,15 +989,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaRect: {fileID: 1361042569}
-  enemyQueue:
+  startPosition: {fileID: 1481240063}
+  enemiesQueue:
+  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
+  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
   - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
   - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
+  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
+  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
   - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
+  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
   maxEnemies: 8
+  queueAnimation: {fileID: 2092847512}
+  positions: []
+--- !u!114 &2092847512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092847509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bc2ddff898df24aaa9d65b3a09c7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
