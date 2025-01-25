@@ -8,17 +8,17 @@ public class AlliesManager : Singleton<AlliesManager>
     public Transform startPosition;
     public AlliesQueueAnimation queueAnimation;
     public int maxAllies = 8;
-    public List<Entity> alliesQueue = new();
 
     [ReadOnly]public List<Vector2> positions = new();
 
+    [SerializeField] private List<Entity> alliesPrefabs = new();
+
     public void AllyKilled(Entity ally)
     {
-        alliesQueue.Remove(ally);
-        queueAnimation.VerifyAndReorganize();
+        queueAnimation.activeAllies.Remove(ally);
     }
 
-    private void Start()
+    public void CreateAllies()
     {
         ArrangePositions();
         InstantiateAllies();
@@ -34,9 +34,9 @@ public class AlliesManager : Singleton<AlliesManager>
 
         float availableWidth = areaRect.transform.localScale.x;
 
-        int entityCount = Mathf.Min(alliesQueue.Count, maxAllies);
-
         float positionWidth = availableWidth / maxAllies;
+
+        AdjustAllyQuantity();
 
         float startX = areaRect.position.x + (availableWidth / 2);
         float yPosition = areaRect.position.y;
@@ -49,13 +49,22 @@ public class AlliesManager : Singleton<AlliesManager>
         }
     }
 
+    private void AdjustAllyQuantity()
+    {
+        while(alliesPrefabs.Count > maxAllies)
+        {
+            alliesPrefabs.RemoveAt(alliesPrefabs.Count - 1);
+        }
+
+    }
+
     private void InstantiateAllies()
     {
         var i = 0;
-        foreach(var entity in alliesQueue)
+        foreach(var entity in alliesPrefabs)
         {
             Entity ally = Instantiate(entity, startPosition.position, Quaternion.identity, startPosition);
-            queueAnimation.EnqueueAlly(ally.transform, positions[i]);
+            queueAnimation.EnqueueAlly(ally, positions[i]);
             ++i;
         }
     }

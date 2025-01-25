@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 4587855640750102577}
   - component: {fileID: 8909215361218920942}
   - component: {fileID: 6135660207533859710}
-  - component: {fileID: 4535988608133138585}
   - component: {fileID: 3101534095688413582}
+  - component: {fileID: 2515119104126631356}
   m_Layer: 0
   m_Name: BolhaMaligna
   m_TagString: Untagged
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: {fileID: 241545793006322219}
-  death: {fileID: 4535988608133138585}
+  death: {fileID: 2515119104126631356}
   damageHandler: {fileID: 4587855640750102577}
   healHandler: {fileID: 8909215361218920942}
   ability: {fileID: 6135660207533859710}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 2
   _currentArmor: 0
+  _currentLife: 1
 --- !u!114 &4587855640750102577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2a69c43cdd0274fb323aa0adaad7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 6292405138324534023}
 --- !u!114 &8909215361218920942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,19 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDamage: 1
---- !u!114 &4535988608133138585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3427888476387941591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e00fe6f05cc9b4eacbeb411d0a9182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 6292405138324534023}
 --- !u!61 &3101534095688413582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,3 +235,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2515119104126631356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427888476387941591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081902def93abfb4bb445fff42950974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

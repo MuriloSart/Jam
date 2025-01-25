@@ -21,7 +21,7 @@ namespace Entities.Health
             }
         }
 
-        private int _currentLife;
+        [SerializeField] [ReadOnly] private int _currentLife = 1;
 
         public int CurrentLife
         {
@@ -39,19 +39,20 @@ namespace Entities.Health
 
         private void Start()
         {
-            _currentLife = startLife;
+            if (_currentLife <= 0)
+                _currentLife = startLife;
         }
 
         public virtual void Damage(int damage)
         {
             if (damage < 0) return;
-            _currentLife -= damage;
+            CurrentLife -= damage;
         }
 
         public virtual void Heal(int heal)
         {
             if (heal < 0) return;
-            _currentLife += heal;
+            CurrentLife += heal;
         }
     }
 }

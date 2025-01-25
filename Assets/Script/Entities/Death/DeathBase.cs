@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities.Death
 {
-    public class DeathBase : MonoBehaviour, IKillable
+    public abstract class DeathBase : MonoBehaviour, IKillable
     {
         protected Entity entity;
         private void Start()
@@ -11,10 +11,6 @@ namespace Entities.Death
             entity = GetComponent<Entity>();
         }
 
-        public virtual void Kill()
-        {
-            Destroy(this);
-            AlliesManager.Instance.AllyKilled(entity);
-        }
+        public abstract void Kill();
     }
 }

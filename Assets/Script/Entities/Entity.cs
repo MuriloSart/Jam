@@ -45,7 +45,6 @@ namespace Entities
         protected virtual void Init() 
         {
             startAbility?.Cast();
-            damageHandler.Initializer(this);
             healHandler.Initializer(this);
         }
 

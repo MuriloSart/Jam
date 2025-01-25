@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 241545793006322219}
   - component: {fileID: 4587855640750102577}
   - component: {fileID: 8909215361218920942}
-  - component: {fileID: 1762610130124196810}
   - component: {fileID: 7152669467571300457}
   - component: {fileID: 2908654526879985263}
+  - component: {fileID: 228753547821789897}
   m_Layer: 0
   m_Name: Pernilongo
   m_TagString: Untagged
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   health: {fileID: 241545793006322219}
-  death: {fileID: 1762610130124196810}
+  death: {fileID: 228753547821789897}
   damageHandler: {fileID: 4587855640750102577}
   healHandler: {fileID: 8909215361218920942}
   ability: {fileID: 7152669467571300457}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 1
   _currentArmor: 0
+  _currentLife: 1
 --- !u!114 &4587855640750102577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2a69c43cdd0274fb323aa0adaad7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 3452505596020384368}
 --- !u!114 &8909215361218920942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,18 +174,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f03220dd8daf4048b89cb263ace7e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1762610130124196810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3427888476387941591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405b2d09846a31541bb61999b45e6bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7152669467571300457
@@ -246,3 +236,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &228753547821789897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427888476387941591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6807bf99fb93e459682f0079b992c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

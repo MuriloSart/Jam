@@ -7,8 +7,8 @@ namespace Entities.Abilities
         public int debuffDamage = 1;
         public override void Cast()
         {
-            int randomInt = Random.Range(0, EnemiesManager.Instance.enemiesQueue.Count - 1);
-            EnemiesManager.Instance.enemiesQueue[randomInt].Damage -= debuffDamage;
+            int randomInt = Random.Range(0, EnemiesManager.Instance.queueAnimation.activeEnemies.Count - 1);
+            EnemiesManager.Instance.queueAnimation.activeEnemies[randomInt].GetComponent<Entity>().Damage -= debuffDamage;
         }
     }
 }

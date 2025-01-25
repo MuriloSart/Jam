@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Entities;
+using Unity.VisualScripting;
 
 public class EnemiesQueueAnimation : MonoBehaviour
 {
@@ -10,23 +12,25 @@ public class EnemiesQueueAnimation : MonoBehaviour
     private Queue<EnemyAnimationData> animationQueue = new();
     private bool isAnimating = false;
 
-    private List<Transform> activeAEnemies = new();
+    [ReadOnly] public List<Entity> activeEnemies = new();
+
+    public event System.Action OnAllAnimationsComplete;
 
     private class EnemyAnimationData
     {
-        public Transform EnemyTransform { get; }
+        public Entity Enemy { get; }
         public Vector3 TargetPosition { get; }
 
-        public EnemyAnimationData(Transform enemyTransform, Vector3 targetPosition)
+        public EnemyAnimationData(Entity enemy, Vector3 targetPosition)
         {
-            EnemyTransform = enemyTransform;
+            Enemy = enemy;
             TargetPosition = targetPosition;
         }
     }
 
-    public void EnqueueEnemy(Transform enemyTransform, Vector3 targetPosition)
+    public void EnqueueEnemy(Entity enemyTransform, Vector3 targetPosition)
     {
-        activeAEnemies.Add(enemyTransform);
+        activeEnemies.Add(enemyTransform);
         animationQueue.Enqueue(new EnemyAnimationData(enemyTransform, targetPosition));
 
         if (!isAnimating)
@@ -43,38 +47,36 @@ public class EnemiesQueueAnimation : MonoBehaviour
         {
             var animationData = animationQueue.Dequeue();
 
-            if (animationData.EnemyTransform != null)
+            if (animationData.Enemy != null)
             {
-                animationData.EnemyTransform.DOMove(animationData.TargetPosition, animationTime);
+                animationData.Enemy.transform.DOMove(animationData.TargetPosition, animationTime);
                 yield return new WaitForSeconds(animationTime / 5);
             }
         }
 
         isAnimating = false;
-    }
 
-    private void Update()
-    {
-        VerifyAndReorganize();
+        OnAllAnimationsComplete?.Invoke();
     }
 
     public void VerifyAndReorganize()
     {
-        for (int i = activeAEnemies.Count - 1; i >= 0; i--)
+        for (int i = activeEnemies.Count - 1; i >= 0; i--)
         {
-            if (activeAEnemies[i] == null)
+            if (activeEnemies[i].gameObject.IsDestroyed())
             {
-                activeAEnemies.RemoveAt(i);
+                activeEnemies.RemoveAt(i);
             }
         }
 
-        for (int i = 0; i < activeAEnemies.Count; i++)
+        for (int i = 0; i < activeEnemies.Count; i++)
         {
             if (EnemiesManager.Instance.positions != null && i < EnemiesManager.Instance.positions.Count)
             {
                 Vector3 newPosition = EnemiesManager.Instance.positions[i];
-                activeAEnemies[i].DOMove(newPosition, animationTime);
+                activeEnemies[i].transform.DOMove(newPosition, animationTime);
             }
         }
+        OnAllAnimationsComplete?.Invoke();
     }
 }

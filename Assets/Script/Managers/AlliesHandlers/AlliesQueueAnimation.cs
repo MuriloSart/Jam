@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Entities;
+using Unity.VisualScripting;
 
 public class AlliesQueueAnimation : MonoBehaviour
 {
@@ -10,21 +12,23 @@ public class AlliesQueueAnimation : MonoBehaviour
     private Queue<AllyAnimationData> animationQueue = new();
     private bool isAnimating = false;
 
-    private List<Transform> activeAllies = new();
+    [ReadOnly] public List<Entity> activeAllies = new();
+
+    public event System.Action OnAllAnimationsComplete;
 
     private class AllyAnimationData
     {
-        public Transform AllyTransform { get; }
+        public Entity Ally { get; }
         public Vector3 TargetPosition { get; }
 
-        public AllyAnimationData(Transform allyTransform, Vector3 targetPosition)
+        public AllyAnimationData(Entity ally, Vector3 targetPosition)
         {
-            AllyTransform = allyTransform;
+            Ally = ally;
             TargetPosition = targetPosition;
         }
     }
 
-    public void EnqueueAlly(Transform allyTransform, Vector3 targetPosition)
+    public void EnqueueAlly(Entity allyTransform, Vector3 targetPosition)
     {
         activeAllies.Add(allyTransform);
         animationQueue.Enqueue(new AllyAnimationData(allyTransform, targetPosition));
@@ -43,26 +47,23 @@ public class AlliesQueueAnimation : MonoBehaviour
         {
             var animationData = animationQueue.Dequeue();
 
-            if (animationData.AllyTransform != null)
+            if (animationData.Ally != null)
             {
-                animationData.AllyTransform.DOMove(animationData.TargetPosition, animationTime);
+                animationData.Ally.transform.DOMove(animationData.TargetPosition, animationTime);
                 yield return new WaitForSeconds(animationTime / 5);
             }
         }
 
         isAnimating = false;
-    }
 
-    private void Update()
-    {
-        VerifyAndReorganize();
+        OnAllAnimationsComplete?.Invoke();
     }
 
     public void VerifyAndReorganize()
     {
         for (int i = activeAllies.Count - 1; i >= 0; i--)
         {
-            if (activeAllies[i] == null)
+            if (activeAllies[i].gameObject.IsDestroyed())
             {
                 activeAllies.RemoveAt(i);
             }
@@ -73,8 +74,10 @@ public class AlliesQueueAnimation : MonoBehaviour
             if (AlliesManager.Instance.positions != null && i < AlliesManager.Instance.positions.Count)
             {
                 Vector3 newPosition = AlliesManager.Instance.positions[i];
-                activeAllies[i].DOMove(newPosition, animationTime);
+                activeAllies[i].transform.DOMove(newPosition, animationTime);
             }
         }
+
+        OnAllAnimationsComplete?.Invoke();
     }
 }

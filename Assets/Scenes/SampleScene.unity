@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &262226228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262226230}
+  - component: {fileID: 262226229}
+  m_Layer: 0
+  m_Name: CoroutineRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &262226229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262226228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d047644d0c359846a57f41733020155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &262226230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262226228}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7775105, y: -1.116979, z: 0.009717222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376662138
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbf097fc494ff543b04d846837eca57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleStates: {fileID: 1479029294}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +847,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092847510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1479029293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479029295}
+  - component: {fileID: 1479029294}
+  m_Layer: 0
+  m_Name: FSMs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1479029294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479029293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc5b8f393158194c8cbf0aeb295010d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1479029295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479029293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7738949, y: -1.0758243, z: -0.027330626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481240062
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,16 +973,16 @@ MonoBehaviour:
   startPosition: {fileID: 775519199}
   queueAnimation: {fileID: 1573052821}
   maxAllies: 8
-  alliesQueue:
-  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
-  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
-  - {fileID: 3452505596020384368, guid: 0e01ce0a0acad7e42bffb4cafbefbedf, type: 3}
-  - {fileID: 3452505596020384368, guid: 0e01ce0a0acad7e42bffb4cafbefbedf, type: 3}
-  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
-  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
-  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
-  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
   positions: []
+  alliesPrefabs:
+  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
+  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
+  - {fileID: 3452505596020384368, guid: 0e01ce0a0acad7e42bffb4cafbefbedf, type: 3}
+  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
+  - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
+  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
+  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
+  - {fileID: 5557844902619065337, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
 --- !u!114 &1573052821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 1
+  activeAllies: []
 --- !u!1 &1680171310
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,18 +1080,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaRect: {fileID: 1361042569}
   startPosition: {fileID: 1481240063}
-  enemiesQueue:
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
-  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
-  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
-  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
-  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
-  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
-  maxEnemies: 8
   queueAnimation: {fileID: 2092847512}
+  maxEnemies: 8
   positions: []
+  enemiesPrefabs:
+  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
+  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
+  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
+  - {fileID: 6292405138324534023, guid: 2aca913c04ff0a049987ba241d6b0a4a, type: 3}
+  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
+  - {fileID: 6292405138324534023, guid: 3681ffbcf40035c419aae61ef7592006, type: 3}
+  - {fileID: 6292405138324534023, guid: 52e861f7bb913e442b6a5a96a1917658, type: 3}
 --- !u!114 &2092847512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,6 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 1
+  activeEnemies: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1022,5 +1112,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 376662141}
   - {fileID: 619394802}
+  - {fileID: 1479029295}
+  - {fileID: 262226230}
   - {fileID: 1680171311}
   - {fileID: 802333330}

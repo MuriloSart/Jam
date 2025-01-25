@@ -8,9 +8,9 @@ namespace Entities.Abilities
         public int heal = 1;
         public override void Cast()
         {
-            int randomInt = Random.Range(0, AlliesManager.Instance.alliesQueue.Count - 2);
-            AlliesManager.Instance.alliesQueue[randomInt].Damage += bonusDamage;
-            AlliesManager.Instance.alliesQueue[randomInt].health.Heal(heal);
+            int randomInt = Random.Range(0, AlliesManager.Instance.queueAnimation.activeAllies.Count - 2);
+            AlliesManager.Instance.queueAnimation.activeAllies[randomInt].GetComponent<Entity>().Damage += bonusDamage;
+            AlliesManager.Instance.queueAnimation.activeAllies[randomInt].GetComponent<Entity>().health.Heal(heal);
         }
     }
 }

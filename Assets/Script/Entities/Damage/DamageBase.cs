@@ -1,24 +1,24 @@
-﻿using Entities.Interfaces;
+﻿using Entities.Health;
+using Entities.Interfaces;
 using UnityEngine;
 
 namespace Entities.Damage
 {
     public class DamageBase : MonoBehaviour, IDamageble
     {
-        protected Entity entity;
+        public Entity entity;
 
-        public void Initializer(Entity entity)
+        public virtual void Deal(int damage, HealthBase health)
         {
-            this.entity = entity;
-        }
+            var damageResult = damage - health.CurrentArmor;
 
-        public virtual void Deal(int damage, Entity entity)
-        {
-            var damageResult = damage - entity.health.CurrentArmor;
+            if (damageResult < 0)
+            {
+                Debug.Log("Dano insuficiente para superar a armadura.");
+                return;
+            }
 
-            if (damageResult < 0) return;
-
-            entity.health.Damage(damageResult);
+            health.Damage(damageResult);
         }
     }
 }
