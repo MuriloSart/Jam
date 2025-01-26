@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8909215361218920942}
   - component: {fileID: 2846811567440567673}
   - component: {fileID: 8526789981807262028}
-  - component: {fileID: 3669372503578945356}
+  - component: {fileID: 2323166756656056902}
   m_Layer: 0
   m_Name: Mosquito
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -7335345776834287784, guid: 0c7d58cc9a54f70479e1a9f1abdc2d35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLife: 2
   _currentArmor: 0
+  _currentLife: 1
 --- !u!114 &4587855640750102577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonusDamage: 1
   heal: 1
---- !u!61 &3669372503578945356
+--- !u!61 &2323166756656056902
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,11 +240,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0

@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 8909215361218920942}
   - component: {fileID: 6292348609391374277}
   - component: {fileID: 6000553385148931742}
-  - component: {fileID: -7724546140194163186}
   - component: {fileID: 6408732624432785352}
+  - component: {fileID: 740815789308561286}
   m_Layer: 0
   m_Name: BolhaAfiada
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -7942341819625305570, guid: 92e29e407fef4354fbc8b44d9b3d7581, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +191,19 @@ MonoBehaviour:
   heal: 1
   bonusDamage: 2
   entity: {fileID: 6292405138324534023}
---- !u!61 &-7724546140194163186
+--- !u!114 &6408732624432785352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427888476387941591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbaa6aa1c275a3f47861b99d7829e629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &740815789308561286
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,23 +241,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.96, y: 1.79}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.96, y: 1.79}
   m_EdgeRadius: 0
---- !u!114 &6408732624432785352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3427888476387941591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbaa6aa1c275a3f47861b99d7829e629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
