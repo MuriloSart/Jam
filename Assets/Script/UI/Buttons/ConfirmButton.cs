@@ -8,6 +8,8 @@ namespace Ui
         public TeamData teamData;
         public GameObject layoutDeck;
 
+        private bool _isEmpty = true;
+
         public void GetTeam()
         {
             teamData.team.Clear();
@@ -15,10 +17,14 @@ namespace Ui
             {
                 if (child.TryGetComponent<ItemSlot>(out var itemSlot))
                 {
-                    if(itemSlot.entity != null) teamData.team.Add(itemSlot.entity);
-                    SceneManager.LoadScene(1);
+                    if (itemSlot.entity != null)
+                    {
+                        teamData.team.Add(itemSlot.entity);
+                        _isEmpty = false;
+                    }
                 }
             }
+            if(!_isEmpty)SceneManager.LoadScene(1);
         }
     }
 }

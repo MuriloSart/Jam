@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Entities;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class AlliesQueueAnimation : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class AlliesQueueAnimation : MonoBehaviour
 
     public void VerifyAndReorganize()
     {
+        if (activeAllies.Count <= 0) SceneManager.LoadScene(0);
+
         for (int i = activeAllies.Count - 1; i >= 0; i--)
         {
             if (activeAllies[i].gameObject.IsDestroyed())

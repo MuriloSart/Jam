@@ -12,6 +12,7 @@ public class AttackingState : StateBase
         base.OnStateEnter(objs);
         ally = (Entity)objs[0];
         enemy = (Entity)objs[1];
+        if (enemy == null || ally == null) GameManager.Instance.IdleState();
     }
 
     public override void OnStateStay()

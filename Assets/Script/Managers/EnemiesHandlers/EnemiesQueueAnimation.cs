@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Entities;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class EnemiesQueueAnimation : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class EnemiesQueueAnimation : MonoBehaviour
 
     public void VerifyAndReorganize()
     {
+        if (activeEnemies.Count <= 0)SceneManager.LoadScene(0);
+
         for (int i = activeEnemies.Count - 1; i >= 0; i--)
         {
             if (activeEnemies[i].gameObject.IsDestroyed())
