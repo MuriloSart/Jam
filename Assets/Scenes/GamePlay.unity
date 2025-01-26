@@ -973,6 +973,7 @@ MonoBehaviour:
   startPosition: {fileID: 775519199}
   queueAnimation: {fileID: 1573052821}
   maxAllies: 8
+  teamData: {fileID: 11400000, guid: 7723ad308f4e6ed4b8d9412264030bf5, type: 2}
   positions: []
   alliesPrefabs:
   - {fileID: 3252932230082012386, guid: 5bb042119d86ca146af8d1619496d820, type: 3}
@@ -1026,9 +1027,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 616999005}
   - {fileID: 1573052819}
   - {fileID: 2092847510}
+  - {fileID: 616999005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092847509

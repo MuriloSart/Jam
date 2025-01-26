@@ -8,14 +8,28 @@ public class AlliesManager : Singleton<AlliesManager>
     public Transform startPosition;
     public AlliesQueueAnimation queueAnimation;
     public int maxAllies = 8;
+    public TeamData teamData;
+
+    [Space]
 
     [ReadOnly]public List<Vector2> positions = new();
 
-    [SerializeField] private List<Entity> alliesPrefabs = new();
+    [Space]
+
+    [SerializeField][ReadOnly] private List<Entity> alliesPrefabs = new();
 
     public void AllyKilled(Entity ally)
     {
         queueAnimation.activeAllies.Remove(ally);
+    }
+
+    protected override void Init()
+    {
+        alliesPrefabs.Clear();
+        foreach (GameObject ally in teamData.team)
+        {
+            alliesPrefabs.Add(ally.GetComponent<Entity>());
+        }
     }
 
     public void CreateAllies()

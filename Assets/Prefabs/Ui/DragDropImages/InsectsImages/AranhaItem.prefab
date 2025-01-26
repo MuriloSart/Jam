@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1850806347889813581}
   - component: {fileID: 8148166725677250146}
   m_Layer: 5
-  m_Name: MosquitoItem
+  m_Name: AranhaItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7335345776834287784, guid: 0c7d58cc9a54f70479e1a9f1abdc2d35, type: 3}
+  m_Sprite: {fileID: 4120011959888742894, guid: 3c6c0d4942f8b3e478f18ed589c51138, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,4 +117,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3ea1aa98b09724084f353a82eb034a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 3427888476387941591, guid: b2902f68c4d2dc64ea96c07f61baa42c, type: 3}
+  entity: {fileID: 3427888476387941591, guid: 5bb042119d86ca146af8d1619496d820, type: 3}

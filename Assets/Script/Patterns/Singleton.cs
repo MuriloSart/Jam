@@ -10,7 +10,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             Instance = GetComponent<T>();
         else
             Destroy(gameObject);
+        Init();
     }
+
+    protected virtual void Init(){}
 }
 
     

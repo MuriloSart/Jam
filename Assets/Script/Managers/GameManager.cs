@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void Start()
+    public void Start()
     {
         AlliesManager.Instance.queueAnimation.OnAllAnimationsComplete += CheckingAllyAnimations;
         EnemiesManager.Instance.queueAnimation.OnAllAnimationsComplete += CheckingEnemiesAnimations;
