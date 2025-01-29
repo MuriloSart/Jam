@@ -31,8 +31,8 @@ namespace Entities
         public HealBase healHandler;
 
         [Header("Abilities")]
-        [SerializeField] private AbilityBase ability;
-        [SerializeField] private AbilityBase startAbility;
+        public AbilityBase ability;
+        public AbilityBase startAbility;
 
 
         [HideInInspector] public Action<Entity> OnAbilityUsed;
@@ -44,13 +44,12 @@ namespace Entities
 
         protected virtual void Init() 
         {
-            startAbility?.Cast();
             healHandler.Initializer(this);
         }
 
         public void UseAbility()
         {
-            ability.Cast();
+            ability?.Cast();
             OnAbilityUsed?.Invoke(this);
         }
     }

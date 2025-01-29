@@ -103,10 +103,10 @@ TextureImporter:
       name: Shield_BB_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
+        x: 101
+        y: 88
+        width: 198
+        height: 215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

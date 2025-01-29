@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.656325, y: -3.37, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2996999135810788077}
@@ -135,7 +135,7 @@ MonoBehaviour:
   death: {fileID: 2846811567440567673}
   damageHandler: {fileID: 4587855640750102577}
   healHandler: {fileID: 8909215361218920942}
-  ability: {fileID: 8526789981807262028}
+  ability: {fileID: 0}
   startAbility: {fileID: 0}
 --- !u!114 &241545793006322219
 MonoBehaviour:
